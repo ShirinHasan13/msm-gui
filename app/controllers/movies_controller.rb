@@ -14,7 +14,7 @@ class MoviesController < ApplicationController
 
     m.save
 
-    redirect_to("https://wikipedia.org", allow_other_host: true)
+    redirect_to("/movies")
 
     # Retreive the user's inputs from params 
     # Create a record in the movie table
