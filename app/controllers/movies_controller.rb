@@ -11,7 +11,10 @@ class MoviesController < ApplicationController
     m.description=params.fetch("the_description")
     m.image=params.fetch("the_image")
     m.director_id=params.fetch("the_director_id")
+
     m.save
+
+    redirect_to("https://wikipedia.org")
 
     # Retreive the user's inputs from params 
     # Create a record in the movie table
