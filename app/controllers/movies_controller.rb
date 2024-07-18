@@ -1,5 +1,15 @@
 class MoviesController < ApplicationController
 
+  def update
+    # Get the ID out of params
+   m_id = params.fetch("the_id")
+    # Look up the existing record
+    # Overwrite each column with the values from user inputs
+    # Save
+
+    # Redirect to the movie details page
+  end
+
   def create
     # params hash looks like this:
     # {"the_title"=>"1", "the_year"=>"2", "the_duration=>3", "the_description=>"4", "the_image"=>"5", "the_director_id"=>"6"}
