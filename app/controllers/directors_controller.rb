@@ -6,7 +6,7 @@ class DirectorsController < ApplicationController
     matching_records= Director.where({ :id => d_id })
     the_director = matching_records.at(0) 
     # Overwrite each column with the values from user inputs
-    the_director.name=params.fetch("the_title")
+    the_director.name=params.fetch("the_name")
     the_director.dob=params.fetch("the_Dob")
     the_director.bio=params.fetch("the_Bio")
     
