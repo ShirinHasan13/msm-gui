@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get("/", { :controller => "misc", :action => "homepage" })
 
   post("/insert_director", { :controller => "directors", :action => "create" })
+  post("/modify_director/:the_id", { :controller => "directors", :action => "update" } ) 
   get("/directors", { :controller => "directors", :action => "index" })
   get("/directors/:path_id", { :controller => "directors", :action => "show" })
   get("/directors/youngest", { :controller => "directors", :action => "max_dob" })
