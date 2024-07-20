@@ -1,23 +1,23 @@
 class ActorsController < ApplicationController
   def update
     # Get the ID out of params
-   a_id = params.fetch("the_id")
-    # Look up the existing record
-    matching_records= Actor.where({ :id => a_id })
-    the_actor = matching_records.at(0) 
-    # Overwrite each column with the values from user inputs
-    the_actor.name=params.fetch("the_name")
-    the_director.dob=params.fetch("the_Dob")
-    the_director.bio=params.fetch("the_Bio")
+    a_id = params.fetch("the_id")
     
-    the_director.image=params.fetch("the_image")
-   
+    # Look up the existing record
+    matching_records = Actor.where({ :id => a_id })
+    the_actor = matching_records.at(0) 
+    
+    # Overwrite each column with the values from user inputs
+    the_actor.name = params.fetch("the_name")
+    the_actor.dob = params.fetch("the_dob")
+    the_actor.bio = params.fetch("the_bio")
+    the_actor.image = params.fetch("the_image")
 
     # Save
     the_actor.save
 
-    # Redirect to the movie details page
-    redirect_to("/movies/#{the_actor.id}")
+    # Redirect to the actor details page
+    redirect_to("/actors/#{the_actor.id}")
   end
 
   def index
@@ -34,5 +34,19 @@ class ActorsController < ApplicationController
     @the_actor = matching_actors.at(0)
       
     render({ :template => "actor_templates/show" })
+  end
+
+  def create
+    actor = Actor.new
+    actor.name = params.fetch("query_name")
+    actor.dob = params.fetch("query_dob")
+    actor.bio = params.fetch("query_bio")
+    actor.image = params.fetch("query_image")
+
+    if actor.save
+      redirect_to("/actors")
+    else
+      render({ :template => "page_templates/error" })
+    end
   end
 end

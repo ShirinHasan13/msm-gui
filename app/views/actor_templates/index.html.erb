@@ -63,26 +63,26 @@
     </th>
   </tr>
 
-  <% @list_of_actors.each do |an_actor| %>
+  <% @list_of_actors.each do |actor| %>
   <tr>
     <td>
-      <%= an_actor.id %>
+      <%= actor.id %>
     </td>
 
     <td>
-      <img src="<%= an_actor.image %>" style="width:250px;">
+      <img src="<%= actor.image %>" style="width:250px;">
     </td>
 
     <td>
-      <%= an_actor.name %>
+      <%= actor.name %>
     </td>
 
     <td>
-      <%= an_actor.dob %>
+      <%= actor.dob %>
     </td>
 
     <td>
-      <a href="/actors/<%= an_actor.id %>">
+      <a href="/actors/<%= actor.id %>">
         Show details
       </a>
     </td>
